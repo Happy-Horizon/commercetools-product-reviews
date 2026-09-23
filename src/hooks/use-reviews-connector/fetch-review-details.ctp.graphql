@@ -1,0 +1,36 @@
+query FetchReviewDetails($id: String!, $locale: Locale!) {
+  review(id: $id) {
+    id
+    version
+    authorName
+    title
+    text
+    rating
+    locale
+    createdAt
+    includedInStatistics
+    uniquenessValue
+    custom {
+      customFieldsRaw {
+        name
+        value
+      }
+    }
+    customer {
+      id
+      email
+    }
+    target {
+      __typename
+      id
+      ... on Product {
+        key
+        masterData {
+          current {
+            name(locale: $locale)
+          }
+        }
+      }
+    }
+  }
+}

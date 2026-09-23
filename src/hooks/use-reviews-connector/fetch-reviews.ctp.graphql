@@ -1,0 +1,42 @@
+query FetchReviews(
+  $limit: Int!
+  $offset: Int!
+  $sort: [String!]
+  $locale: Locale!
+  $where: String
+) {
+  reviews(limit: $limit, offset: $offset, sort: $sort, where: $where) {
+    total
+    count
+    offset
+    results {
+      id
+      version
+      authorName
+      title
+      text
+      rating
+      locale
+      createdAt
+      includedInStatistics
+      custom {
+        customFieldsRaw {
+          name
+          value
+        }
+      }
+      target {
+        __typename
+        id
+        ... on Product {
+          key
+          masterData {
+            current {
+              name(locale: $locale)
+            }
+          }
+        }
+      }
+    }
+  }
+}

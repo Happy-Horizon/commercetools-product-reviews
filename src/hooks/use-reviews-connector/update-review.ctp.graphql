@@ -1,0 +1,16 @@
+mutation UpdateReview(
+  $id: String!
+  $version: Long!
+  $actions: [ReviewUpdateAction!]!
+) {
+  updateReview(id: $id, version: $version, actions: $actions) {
+    id
+    version
+    custom {
+      customFieldsRaw {
+        name
+        value
+      }
+    }
+  }
+}

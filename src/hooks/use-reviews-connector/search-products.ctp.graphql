@@ -1,0 +1,7 @@
+query SearchProducts($where: String, $locale: Locale!) {
+  products(where: $where, limit: 20) {
+    results {
+      id
+    }
+  }
+}

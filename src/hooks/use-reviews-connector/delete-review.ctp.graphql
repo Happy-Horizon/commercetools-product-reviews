@@ -1,0 +1,5 @@
+mutation DeleteReview($id: String!, $version: Long!) {
+  deleteReview(id: $id, version: $version) {
+    id
+  }
+}

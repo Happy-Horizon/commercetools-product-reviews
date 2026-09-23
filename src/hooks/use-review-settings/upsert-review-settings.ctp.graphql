@@ -1,0 +1,9 @@
+mutation UpsertReviewSettings($draft: CustomObjectDraft!) {
+  createOrUpdateCustomObject(draft: $draft) {
+    id
+    version
+    container
+    key
+    value
+  }
+}
