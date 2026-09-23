@@ -9,7 +9,8 @@ const config = {
   cloudIdentifier: process.env.CLOUD_IDENTIFIER || 'gcp-eu',
   env: {
     development: {
-      initialProjectKey: '${env:CTP_INITIAL_PROJECT_KEY}',
+      initialProjectKey:
+        process.env.CTP_INITIAL_PROJECT_KEY || 'your-project-key',
     },
     production: {
       applicationId:
