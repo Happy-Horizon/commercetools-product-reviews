@@ -1,7 +1,14 @@
 // Make sure to import the helper functions from the `ssr` entry point.
 import { entryPointUriPathToPermissionKeys } from '@commercetools-frontend/application-shell/ssr';
+import type { ApplicationWindow } from '@commercetools-frontend/constants';
 
-export const entryPointUriPath = 'product-reviews';
+declare let window: ApplicationWindow;
+declare const process: { env: Record<string, string | undefined> };
+
+export const entryPointUriPath =
+  (typeof window !== 'undefined' && window.app?.entryPointUriPath) ||
+  process.env.ENTRY_POINT_URI_PATH ||
+  'product-reviews';
 
 export const PERMISSIONS = entryPointUriPathToPermissionKeys(entryPointUriPath);
 

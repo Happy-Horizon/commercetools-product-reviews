@@ -1,6 +1,11 @@
 node_modules
-public
-dist
-!.env
+.pnpm-store
+.history
+.DS_Store
+product-reviews/node_modules
+product-reviews/public
+product-reviews/dist
 .env.local
+product-reviews/.env.local
 !.env.example
+!.product-reviews/.env.example

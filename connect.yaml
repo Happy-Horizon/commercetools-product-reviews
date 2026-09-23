@@ -1,0 +1,15 @@
+deployAs:
+  - name: product-reviews
+    applicationType: merchant-center-custom-application
+    configuration:
+      standardConfiguration:
+        - key: CUSTOM_APPLICATION_ID
+          description: Custom Application ID from Merchant Center (Organizations > Custom Applications)
+          required: true
+        - key: CLOUD_IDENTIFIER
+          description: Merchant Center region (gcp-eu, gcp-us, aws-eu, aws-us)
+          default: 'gcp-eu'
+        - key: ENTRY_POINT_URI_PATH
+          description: Application entry point URI path (must match the Custom Application)
+          required: true
+          default: 'product-reviews'

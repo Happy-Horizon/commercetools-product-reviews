@@ -5,14 +5,17 @@ import { PERMISSIONS, entryPointUriPath } from './src/constants';
  */
 const config = {
   name: 'Product Reviews',
-  entryPointUriPath,
-  cloudIdentifier: '${env:CLOUD_IDENTIFIER}',
+  entryPointUriPath: process.env.ENTRY_POINT_URI_PATH || entryPointUriPath,
+  cloudIdentifier: process.env.CLOUD_IDENTIFIER || 'gcp-eu',
   env: {
     development: {
       initialProjectKey: '${env:CTP_INITIAL_PROJECT_KEY}',
     },
     production: {
-      applicationId: process.env.APPLICATION_ID || 'TODO',
+      applicationId:
+        process.env.CUSTOM_APPLICATION_ID ||
+        process.env.APPLICATION_ID ||
+        'TODO',
       url: process.env.APPLICATION_URL || 'https://your-app.example.com',
     },
   },

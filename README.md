@@ -17,9 +17,12 @@ Lists storefront product reviews from the commercetools Reviews API inside Merch
 ## Local development
 
 ```bash
+cd product-reviews
 pnpm install
 cp .env.example .env.local
 ```
+
+From the repo root you can also run `pnpm start`, `pnpm test`, `pnpm typecheck`, and `pnpm lint`.
 
 Edit `.env.local` and set:
 
@@ -66,7 +69,7 @@ The shop must create reviews with `published: false` and list only `published=tr
 
 ## Project config
 
-See `custom-application-config.mjs` and `.env.example`:
+See `product-reviews/custom-application-config.mjs` and `product-reviews/.env.example`:
 
 - `entryPointUriPath`: `product-reviews`
 - `CLOUD_IDENTIFIER`: your Merchant Center region
@@ -74,14 +77,32 @@ See `custom-application-config.mjs` and `.env.example`:
 
 Do not commit `.env.local` or API client secrets. The Custom Application uses the Merchant Center session.
 
+## Deploy with Connect
+
+This repo is a Connect connector. The specification is `connect.yaml` at the repo root. The Custom Application lives in `product-reviews/` (that folder name must match `deployAs.name`).
+
+1. Register the Custom Application in Merchant Center first. Use a dummy **Application URL** (for example `https://example.com`). Note the **Application ID** and keep **Entry point URI path** as `product-reviews`.
+2. Push this repo and create a **new git tag** (the existing `v1.0.0` tag does not include `connect.yaml`).
+3. In Merchant Center, create an Organization Connector that points at this GitHub repo and that new tag.
+4. Publish (preview or private use), then install it. When asked for configuration, set:
+   - `CUSTOM_APPLICATION_ID` — the Application ID from step 1
+   - `ENTRY_POINT_URI_PATH` — `product-reviews`
+   - `CLOUD_IDENTIFIER` — your region (`gcp-eu` by default)
+5. When the installation is ready, copy the Connect **URL** for `product-reviews` and paste it as the Custom Application **Application URL**.
+
+`APPLICATION_URL` is injected by Connect. You do not set it in `connect.yaml`.
+
+Grant the [connect-mu](https://github.com/connect-mu) machine user read access if the GitHub repo is private.
+
 ## Docs
 
 - [Custom Applications](https://docs.commercetools.com/merchant-center-customizations/custom-applications)
+- [Deploy to Connect](https://docs.commercetools.com/merchant-center-customizations/deployment/commercetools-connect)
 - [Reviews API](https://docs.commercetools.com/api/projects/reviews)
 
 <p align="center">
   <br />
   Powered by
   <br />
-  <img src="./src/assets/happy-horizon-wordmark-readme.png" alt="Happy Horizon" width="120" height="42" />
+  <img src="./product-reviews/src/assets/happy-horizon-wordmark-readme.png" alt="Happy Horizon" width="120" height="42" />
 </p>
