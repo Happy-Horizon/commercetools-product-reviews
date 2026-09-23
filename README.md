@@ -18,11 +18,11 @@ Lists storefront product reviews from the commercetools Reviews API inside Merch
 
 ```bash
 cd product-reviews
-pnpm install
+npm install
 cp .env.example .env.local
 ```
 
-From the repo root you can also run `pnpm start`, `pnpm test`, `pnpm typecheck`, and `pnpm lint`.
+From the repo root you can also run `npm start`, `npm test`, `npm run typecheck`, and `npm run lint`.
 
 Edit `.env.local` and set:
 
@@ -32,7 +32,7 @@ Edit `.env.local` and set:
 Then start the app:
 
 ```bash
-pnpm start
+npm start
 ```
 
 This Custom Application **must** run on `http://localhost:3001`. After login, Merchant Center always sends `__local` apps back to that URL. Another port (2001, 3002, …) can serve the HTML, but the OIDC callback still lands on 3001 — which is the shop if that process is bound there.
@@ -52,7 +52,7 @@ Run the shop on a different port (for example `3000`) and keep this app on 3001.
 
 `view_states` / `manage_states` are required so Publish and Unpublish can move a review between the `review-draft` and `review-published` states. If the Custom Application was already registered, add those scopes in Merchant Center and sign in again.
 
-The first time you start `pnpm start`, the CLI prints a development login URL. Sign in with your Merchant Center user.
+The first time you start `npm start`, the CLI prints a development login URL. Sign in with your Merchant Center user.
 
 ## What it shows
 

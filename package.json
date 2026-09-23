@@ -2,12 +2,12 @@
   "name": "commercetools-product-reviews",
   "private": true,
   "scripts": {
-    "start": "pnpm --dir product-reviews start",
-    "build": "pnpm --dir product-reviews build",
-    "test": "pnpm --dir product-reviews test",
-    "lint": "pnpm --dir product-reviews lint",
-    "typecheck": "pnpm --dir product-reviews typecheck",
-    "extract-intl": "pnpm --dir product-reviews extract-intl",
-    "format": "pnpm --dir product-reviews format"
+    "start": "npm --prefix product-reviews start",
+    "build": "npm --prefix product-reviews run build",
+    "test": "npm --prefix product-reviews test",
+    "lint": "npm --prefix product-reviews run lint",
+    "typecheck": "npm --prefix product-reviews run typecheck",
+    "extract-intl": "npm --prefix product-reviews run extract-intl",
+    "format": "npm --prefix product-reviews run format"
   }
 }

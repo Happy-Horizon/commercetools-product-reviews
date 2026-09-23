@@ -93,11 +93,9 @@
   "devDependencies": {
     "@graphql-eslint/eslint-plugin": "^4.4.0"
   },
-  "resolutions": {
+  "overrides": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@types/react-router": "<6",
-    "@types/react-router-dom": "<6",
     "headers-polyfill": "3.2.5",
     "nwsapi": "2.2.7"
   }
