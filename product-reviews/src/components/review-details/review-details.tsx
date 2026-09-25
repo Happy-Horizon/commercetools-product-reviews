@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 import { useFormik } from 'formik';
 import { useIntl } from 'react-intl';
 import { useParams } from 'react-router-dom';
@@ -234,7 +234,7 @@ const ReviewDetails = (props: TReviewDetailsProps) => {
       )}
       {review === null && <PageNotFound />}
       {review && (
-        <>
+        <Fragment>
           <ApplicationPageTitle additionalParts={[title]} />
           <form onSubmit={formik.handleSubmit}>
             <Spacings.Stack scale="l">
@@ -411,7 +411,7 @@ const ReviewDetails = (props: TReviewDetailsProps) => {
           >
             <Text.Body intlMessage={messages.deleteConfirm} />
           </ConfirmationDialog>
-        </>
+        </Fragment>
       )}
     </InfoModalPage>
   );

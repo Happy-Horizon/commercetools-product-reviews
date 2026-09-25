@@ -8,7 +8,7 @@ declare const process: { env: Record<string, string | undefined> };
 export const entryPointUriPath =
   (typeof window !== 'undefined' && window.app?.entryPointUriPath) ||
   process.env.ENTRY_POINT_URI_PATH ||
-  'product-reviews';
+  'hh-product-reviews';
 
 export const PERMISSIONS = entryPointUriPathToPermissionKeys(entryPointUriPath);
 

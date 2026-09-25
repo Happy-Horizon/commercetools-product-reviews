@@ -45,7 +45,7 @@ Run the shop on a different port (for example `3000`) and keep this app on 3001.
 2. Use these values:
    - **Name:** Product Reviews
    - **Application URL:** `http://localhost:3001`
-   - **Entry point URI path:** `product-reviews`
+   - **Entry point URI path:** `hh-product-reviews`
    - **OAuth scopes:** `view_products`, `manage_products`, `view_key_value_documents`, `manage_key_value_documents`, `view_states`, `manage_states`
 3. Install the application on the commercetools project(s) that should use it.
 4. Open Merchant Center for that project. **Product reviews** appears in the menu.
@@ -71,7 +71,7 @@ The shop must create reviews with `published: false` and list only `published=tr
 
 See `product-reviews/custom-application-config.mjs` and `product-reviews/.env.example`:
 
-- `entryPointUriPath`: `product-reviews`
+- `entryPointUriPath`: `hh-product-reviews`
 - `CLOUD_IDENTIFIER`: your Merchant Center region
 - `CTP_INITIAL_PROJECT_KEY`: the project used after local login
 
@@ -81,12 +81,12 @@ Do not commit `.env.local` or API client secrets. The Custom Application uses th
 
 This repo is a Connect connector. The specification is `connect.yaml` at the repo root. The Custom Application lives in `product-reviews/` (that folder name must match `deployAs.name`).
 
-1. Register the Custom Application in Merchant Center first. Use a dummy **Application URL** (for example `https://example.com`). Note the **Application ID** and keep **Entry point URI path** as `product-reviews`.
+1. Register the Custom Application in Merchant Center first. Use a dummy **Application URL** (for example `https://example.com`). Note the **Application ID** and keep **Entry point URI path** as `hh-product-reviews` (`product-reviews` is already taken on gcp-eu).
 2. Push this repo and create a **new git tag** (the existing `v1.0.0` tag does not include `connect.yaml`).
 3. In Merchant Center, create an Organization Connector that points at this GitHub repo and that new tag.
 4. Publish (preview or private use), then install it. When asked for configuration, set:
    - `CUSTOM_APPLICATION_ID` — the Application ID from step 1
-   - `ENTRY_POINT_URI_PATH` — `product-reviews`
+   - `ENTRY_POINT_URI_PATH` — `hh-product-reviews`
    - `CLOUD_IDENTIFIER` — your region (`gcp-eu` by default)
 5. When the installation is ready, copy the Connect **URL** for `product-reviews` and paste it as the Custom Application **Application URL**.
 

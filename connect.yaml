@@ -12,4 +12,4 @@ deployAs:
         - key: ENTRY_POINT_URI_PATH
           description: Application entry point URI path (must match the Custom Application)
           required: true
-          default: 'product-reviews'
+          default: 'hh-product-reviews'
